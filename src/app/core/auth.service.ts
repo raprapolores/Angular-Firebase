@@ -1,41 +1,35 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
-import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { auth } from 'firebase/app';
+import { AngularFireAuth } from "@angular/fire/auth";
+import { Router } from '@angular/router';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-	
-  private authState: Observable<firebase.User>
-  private currentUser: firebase.User = null;
+	constructor(
+    public afAuth: AngularFireAuth, // Inject Firebase auth service
+    private router: Router,
+  ) { }
 
-  constructor(public afAuth: AngularFireAuth){
-  	this.authState = this.afAuth.authState;
-  	this.authState.subscribe(user => {
-  		if(user){
-  			this.currentUser = user;
-  		}else {
-  			this.currentUser = null;
-  		}
-  	})
+  // Sign in with Facebook
+  FacebookAuth() {
+    return this.AuthLogin(new auth.FacebookAuthProvider());
+  }  
+
+  // Auth logic to run auth providers
+  AuthLogin(provider) {
+    return this.afAuth.auth.signInWithPopup(provider)
+    .then((result) => {
+        console.log('You have been successfully logged in!')
+        this.router.navigateByUrl("/home");
+    }).catch((error) => {
+        console.log(error)
+    })
   }
-  doFacebookLogin(){
-   return new Promise<any>((resolve, reject) => {
-     let provider = new firebase.auth.FacebookAuthProvider();
-     this.afAuth.auth
-     .signInWithPopup(provider)
-     .then(res => {
-       resolve(res);
-     }, err => {
-       console.log(err);
-       reject(err);
-     })
-   })
-}
-
   
 }

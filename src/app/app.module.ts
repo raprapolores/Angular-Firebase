@@ -14,6 +14,8 @@ import { LoginComponent } from './login/login.component';
 
 
 import { AuthService } from './core/auth.service';
+import { HomeComponent } from './home/home.component';
+import { CreatePostComponent } from './create-post/create-post.component';
 
 
 @NgModule({
@@ -22,6 +24,8 @@ import { AuthService } from './core/auth.service';
     LoginComponent,
     RegisterComponent,
     UserComponent,
+    HomeComponent,
+    CreatePostComponent,
   ],
 
   imports: [
