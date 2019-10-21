@@ -14,7 +14,7 @@ export class AuthService {
 	constructor(
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     private router: Router,
-  ) { }
+  ) { }	
 
   // Sign in with Facebook
   FacebookAuth() {

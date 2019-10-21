@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from "@angular/forms";
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  homeForm: FormGroup
+
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+  	this.homeForm = this.formBuilder.group({
+  		name: "",
+  		alterEgo: ""
+  	});
+  }
+
+  sampleFunction() {
+  	this.homeForm.controls.name.value
   }
 
 }
