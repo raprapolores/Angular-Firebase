@@ -1,2 +1,12 @@
-
-<router-outlet></router-outlet>
+<div class="container-fluid">
+    <div style="color: blue;">
+      <h1>{{title}}</h1>
+      <h3>{{description}}</h3>
+    </div>
+   
+    <nav>
+      <a routerLink="post-list" class="btn btn-primary active" role="button" routerLinkActive="active">Posts</a>
+      <a routerLink="add-post" class="btn btn-primary active" role="button" routerLinkActive="active">Add Post</a>
+    </nav>
+    <router-outlet></router-outlet>
+  </div>

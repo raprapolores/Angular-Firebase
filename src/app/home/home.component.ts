@@ -20,7 +20,8 @@ export class HomeComponent implements OnInit {
   }
 
   sampleFunction() {
-  	this.homeForm.controls.name.value
+  	alert("asdasdsa");
   }
 
 }
+  
