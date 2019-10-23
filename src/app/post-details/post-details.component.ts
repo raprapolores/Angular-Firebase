@@ -10,7 +10,7 @@ import { Post } from '../models/post';
 
 export class PostDetailsComponent implements OnInit {
 
-  post: Post;
+  @Input("post")post: Post;
   
   constructor(private postService: PostService) { }
 

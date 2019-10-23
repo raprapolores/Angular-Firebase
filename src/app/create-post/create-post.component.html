@@ -2,13 +2,13 @@
 <div [hidden]="submitted" style="width: 300px;">
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" required [(ngModel)]="post.name" name="name">
+      <label for="title">Post title</label>
+      <input type="text" class="form-control" id="title" required [(ngModel)]="post.title" name="title">
     </div>
  
     <div class="form-group">
-      <label for="age">Age</label>
-      <input type="text" class="form-control" id="age" required [(ngModel)]="post.age" name="age">
+      <label for="content">Post content</label>
+      <input type="text" class="form-control" id="content" required [(ngModel)]="post.content" name="content">
     </div>
  
     <button type="submit" class="btn btn-success">Submit</button>
