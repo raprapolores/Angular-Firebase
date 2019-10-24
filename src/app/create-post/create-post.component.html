@@ -1,4 +1,4 @@
-<h3>Create Customer</h3>
+<h3>Create Post</h3>
 <div [hidden]="submitted" style="width: 300px;">
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
@@ -6,11 +6,14 @@
       <input type="text" class="form-control" id="title" required [(ngModel)]="post.title" name="title">
     </div>
  
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="content">Post content</label>
       <input type="text" class="form-control" id="content" required [(ngModel)]="post.content" name="content">
+    </div> -->
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Post content</label>
+      <textarea type="text" class="form-control" id="content" required [(ngModel)]="post.content" name="content" rows="3"></textarea>
     </div>
- 
     <button type="submit" class="btn btn-success">Submit</button>
   </form>
 </div>

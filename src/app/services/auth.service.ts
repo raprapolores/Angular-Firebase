@@ -26,7 +26,7 @@ export class AuthService {
     return this.afAuth.auth.signInWithPopup(provider)
     .then((result) => {
         console.log('You have been successfully logged in!')
-        this.router.navigateByUrl("/home");
+        this.router.navigateByUrl("/");
     }).catch((error) => {
         console.log(error)
     })
